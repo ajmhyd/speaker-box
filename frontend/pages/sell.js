@@ -1,7 +1,7 @@
 import React from 'react';
 import CreateItem from '../components/CreateItem';
 
-const sell = (props) => {
+const Sell = (props) => {
   return (
     <div>
       <CreateItem />
@@ -9,4 +9,4 @@ const sell = (props) => {
   );
 };
 
-export default sell;
+export default Sell;
