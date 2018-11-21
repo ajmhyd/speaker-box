@@ -8,7 +8,6 @@ import Error from './ErrorMessage';
 
 
 const CREATE_ITEM_MUTATION = gql`
-
   mutation CREATE_ITEM_MUTATION(
     $title: String!
     $description: String!
