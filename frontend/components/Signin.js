@@ -5,8 +5,8 @@ import Form from './styles/Form';
 import Error from './ErrorMessage';
 import { CURRENT_USER_QUERY } from './User';
 
-const SIGNIN_MUTATION = gql`
-  mutation SIGNIN_MUTATION(
+const SIGN_IN_MUTATION = gql`
+  mutation SIGN_IN_MUTATION(
     $email: String!
     $password: String!
   ) {
@@ -34,7 +34,7 @@ class Signin extends Component {
   render() {
     return (
       <Mutation
-        mutation={SIGNUP_MUTATION}
+        mutation={SIGN_IN_MUTATION}
         variables={this.state}
         refetchQueries={[{ query: CURRENT_USER_QUERY}]}
         >
