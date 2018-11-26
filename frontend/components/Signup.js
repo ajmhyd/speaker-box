@@ -47,6 +47,8 @@ class Signup extends Component {
             e.preventDefault();
             // call mutation
             const res = await signup();
+            // clear form fields
+            this.setState({ name: '', email: '', password: ''});
           }}>
             <fieldset disabled={loading} aria-busy={loading}>
               <h2>Sign up for account!</h2>
