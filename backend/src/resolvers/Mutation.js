@@ -7,7 +7,7 @@ const { hasPermission } = require('../utils');
 
 const Mutations = {
   async createItem(parent, args, ctx, info) {
-    // TODO: Check if they are logged in
+    // Check if they are logged in
     if(!ctx.request.userId) {
       throw new Error('You must be logged in to do that!');
     }
@@ -49,7 +49,7 @@ const Mutations = {
     const hasPermissions = ctx.requrest.user.permissions.some(permission => ['ADMIN', 'ITEMDELETE'].includes(permission));
 
     if(!ownsItem || hasPermissions){
-      throw new Error('You do not have permission to do that1');
+      throw new Error('You do not have permission to do that!');
     }
     // 3. delete it
     return ctx.db.mutation.deleteItem({ where }, info);
@@ -195,7 +195,7 @@ const Mutations = {
         id: args.userId
       }
     }, info);
-  };
+  },
 };
 
 module.exports = Mutations;
