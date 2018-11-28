@@ -43,7 +43,7 @@ const CartItem = ({ cartItem }) => {
   </CartItemStyles>
 )};
 
-CartItem.PropTypes = {
+CartItem.propTypes = {
   cartItem: PropTypes.object.isRequired,
 };
 
