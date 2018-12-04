@@ -5,5 +5,8 @@
     "titleBar.activeBackground": "#FFC600",
     "titleBar.inactiveBackground": "#FFC600CC"
   },
-  "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+  "jest.pathToConfig": "jest.setup.js",
+  "jest.pathToJest": "npm run test",
+  "jest.rootPath": "/"
 }
