@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<RequestRest/> renders and matches snapshot 1`] = `
+exports[`<RequestReset/> renders and matches snapshot 1`] = `
 <form
   className="Form-sc-1xszr8q-0 krRxky"
   data-test="form"

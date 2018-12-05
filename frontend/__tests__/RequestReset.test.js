@@ -1,8 +1,8 @@
 import { mount } from 'enzyme';
 import wait from 'waait';
 import toJSON from 'enzyme-to-json';
-import RequestReset, { REQUEST_RESET_MUTATION } from '../components/RequestReset';
 import { MockedProvider } from 'react-apollo/test-utils';
+import RequestReset, { REQUEST_RESET_MUTATION } from '../components/RequestReset';
 
 const mocks = [
   {
@@ -16,7 +16,7 @@ const mocks = [
   },
 ];
 
-describe('<RequestRest/>', () => {
+describe('<RequestReset/>', () => {
   it('renders and matches snapshot', async () => {
     const wrapper = mount (
       <MockedProvider>
