@@ -3,7 +3,6 @@ import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import Router from 'next/router';
 import Form from './styles/Form';
-import formatMoney from '../lib/formatMoney';
 import Error from './ErrorMessage';
 
 
@@ -62,7 +61,9 @@ class CreateItem extends Component {
     return (
       <Mutation mutation={CREATE_ITEM_MUTATION} variables={this.state} >
         {(createItem, {loading, error}) => (
-          <Form onSubmit={async (e) => {
+          <Form
+            data-test="form"
+            onSubmit={async (e) => {
             // Stop form from submitting
             e.preventDefault();
             // Call mutation
