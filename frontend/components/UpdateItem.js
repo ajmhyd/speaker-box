@@ -45,7 +45,7 @@ class UpdateItem extends Component {
   handleChange = (e) => {
     const { name, type, value } = e.target;
     const val = type === 'number' ? parseFloat(value) : value;
-    this.setState({ [name]: value });
+    this.setState({ [name]: val });
   };
 
   updateItem = async (e, updateItemMutation) => {
@@ -74,7 +74,6 @@ class UpdateItem extends Component {
                 <Form onSubmit={e => this.updateItem(e, updateItem)}>
                 <Error error={error} />
                   <fieldset disabled={loading} aria-busy={loading}>
-
                     <label htmlFor="title">
                       Title
                       <input
@@ -115,7 +114,7 @@ class UpdateItem extends Component {
                 </Form>
               )}
             </Mutation>
-          )
+          );
         }}
       </Query>
     );

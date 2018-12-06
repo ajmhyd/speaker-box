@@ -13,6 +13,7 @@ const Nav = () => (
         <Link href="/items">
           <a>Shop</a>
         </Link>
+        {/* user show navbar */}
         {me && (
           <>
             <Link href="/sell">
@@ -35,13 +36,14 @@ const Nav = () => (
             </Mutation>
           </>
         )}
+        {/* no user show sign in */}
         {!me && (
           <Link href="/signup">
           <a>Sign In</a>
         </Link>
         )}
       </NavStyles>
-    )}
+    )};
   </User>
 );
 

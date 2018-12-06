@@ -13,7 +13,7 @@ const REQUEST_RESET_MUTATION = gql`
 `;
 
 class RequestReset extends Component {
-  state={
+  state = {
     email: '',
   };
 
@@ -42,6 +42,7 @@ class RequestReset extends Component {
             <fieldset disabled={loading} aria-busy={loading}>
               <h2>Request password reset</h2>
               <Error error={error} />
+              {/* // success message */}
               {!error && !loading && called && <p>Success! Check your email for a reset link!</p>}
               <label htmlFor="email">
                 Email

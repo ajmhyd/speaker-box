@@ -24,12 +24,12 @@ const SIGN_UP_MUTATION = gql`
 `;
 
 class Signup extends Component {
-  state={
+  state = {
     name: '',
     email: '',
     password: '',
   };
-
+  // save fields to state
   saveToState = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   }

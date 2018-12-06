@@ -27,11 +27,11 @@ function routeToItem(item) {
 }
 
 class AutoComplete extends React.Component {
-  state ={
+  state = {
     items: [],
     loading: false,
   };
-
+  // debounce to avoid ddos
   onChange =  debounce(async (e, client) => {
     // turn loading on
     this.setState({ loading: true });

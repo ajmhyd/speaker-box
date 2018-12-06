@@ -22,11 +22,11 @@ const SIGN_IN_MUTATION = gql`
 `;
 
 class Signin extends Component {
-  state={
+  state = {
     password: '',
     email: '',
   };
-
+  // set form fields state
   saveToState = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   }

@@ -33,6 +33,7 @@ const Composed = adopt({
 const Cart = () => {
   return (
     <Composed>{({ user, toggleCart, localState }) =>{
+      // check for user
       const me = user.data.me;
       if(!me) return null;
       return (
@@ -47,6 +48,7 @@ const Cart = () => {
           </ul>
           <footer>
             <p>{formatMoney(calcTotalPrice(me.cart))}</p>
+            {/* if something is in cart show checkout button */}
             {me.cart.length && (
               <TakeMyMoney>
                 <SickButton>Checkout</SickButton>
@@ -54,7 +56,7 @@ const Cart = () => {
             )}
           </footer>
         </CartStyles>
-      )
+      );
     }}</Composed>
   );
 };

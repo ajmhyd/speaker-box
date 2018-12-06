@@ -21,6 +21,7 @@ const Pagination = (props) => {
   return (
     <Query query={PAGINATION_QUERY}>
       {({data, loading, error}) => {
+        // loading
         if(loading) return <p>Loading...</p>;
         const count = data.itemsConnection.aggregate.count;
         const pages = Math.ceil(count / perPage);
@@ -29,7 +30,7 @@ const Pagination = (props) => {
           <PaginationStyles data-test="pagination">
             <Head>
               <title>
-                Sick Fits! - Page {page} of {pages}
+                Speaker Box! - Page {page} of {pages}
               </title>
             </Head>
             <Link
@@ -38,9 +39,10 @@ const Pagination = (props) => {
               pathname: 'items',
               query: { page: page - 1 }
             }}>
-            <a className="prev" aria-disabled={page <= 1}>
-              ← Prev
-            </a>
+            {/* disabled on first page */}
+              <a className="prev" aria-disabled={page <= 1}>
+                ← Prev
+              </a>
             </Link>
             <p>
               Page {page} of
@@ -55,9 +57,10 @@ const Pagination = (props) => {
               pathname: 'items',
               query: { page: page + 1 }
             }}>
-            <a className="next" aria-disabled={page >= pages}>
-              Next →
-            </a>
+            {/* disable on last page */}
+              <a className="next" aria-disabled={page >= pages}>
+                Next →
+              </a>
             </Link>
           </PaginationStyles>
         );

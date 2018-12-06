@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import React from 'react';
-
 import PropTypes from 'prop-types';
 
 const ErrorStyles = styled.div`
@@ -19,7 +18,9 @@ const ErrorStyles = styled.div`
 `;
 
 const DisplayError = ({ error }) => {
+  // no error
   if (!error || !error.message) return null;
+  // error
   if (error.networkError && error.networkError.result && error.networkError.result.errors.length) {
     return error.networkError.result.errors.map((error, i) => (
       <ErrorStyles key={i}>

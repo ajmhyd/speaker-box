@@ -42,7 +42,8 @@ const Permissions = (props) => (
         <div>
           <Error error={error} />
           <div>
-          <h2>Manage Permissions</h2>
+            <h2>Manage Permissions</h2>
+            {/* // permissions table */}
             <Table>
               <thead>
                 <tr>

@@ -42,6 +42,7 @@ class Order extends Component {
           if(loading) return <p>Loading...</p>;
           const order = data.order;
           return (
+            // order
             <OrderStyles data-test="order">
               <Head>
                 <title>Sick Fits - Order {order.id}</title>
@@ -66,6 +67,7 @@ class Order extends Component {
                 <span>Item Count</span>
                 <span>{order.items.length}</span>
               </p>
+              {/* items */}
               <div className="items">
                 {order.items.map(item => (
                   <div className="order-item" key ={item.id}>

@@ -34,24 +34,26 @@ class CreateItem extends Component {
     largeImage: '',
     price: 0,
   };
-
+  // handle field inputs
   handleChange = (e) => {
     const { name, type, value } = e.target;
     const val = type === 'number' ? parseFloat(value) : value;
     this.setState({ [name]: val });
   }
-
+  // image upload
   uploadFile = async (e) => {
     const files = e.target.files;
     const data = new FormData();
     data.append('file', files[0]);
     data.append('upload_preset', 'sickfits');
-
+    // post image to cloudinary
     const res = await fetch('	https://api.cloudinary.com/v1_1/amatseshe/image/upload', {
       method: 'POST',
       body: data,
     });
+    // respond with image
     const file = await res.json();
+    // set state with image
     this.setState({
       image: file.secure_url,
       largeImage: file.eager[0].secure_url,
