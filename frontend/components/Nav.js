@@ -3,18 +3,19 @@ import { Mutation } from 'react-apollo';
 import { TOGGLE_CART_MUTATION } from './Cart';
 import NavStyles from './styles/NavStyles';
 import User from './User';
-import Signout from './Signout';
 import CartCount from './CartCount';
+import Signout from './Signout';
 
 const Nav = () => (
   <User>
-    {({data: { me }}) => (
+    {({ data: { me } }) => (
       <NavStyles data-test="nav">
         <Link href="/items">
           <a>Shop</a>
         </Link>
-        {/* user show navbar */}
+        {/* user */}
         {me && (
+          // react fragment
           <>
             <Link href="/sell">
               <a>Sell</a>
@@ -22,7 +23,7 @@ const Nav = () => (
             <Link href="/orders">
               <a>Orders</a>
             </Link>
-            <Link href="/me">
+            <Link href="/permissions">
               <a>Account</a>
             </Link>
             <Signout />
@@ -36,14 +37,14 @@ const Nav = () => (
             </Mutation>
           </>
         )}
-        {/* no user show sign in */}
+        {/* user not signed in */}
         {!me && (
           <Link href="/signup">
-          <a>Sign In</a>
-        </Link>
+            <a>Sign In</a>
+          </Link>
         )}
       </NavStyles>
-    )};
+    )}
   </User>
 );
 

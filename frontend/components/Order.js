@@ -45,15 +45,11 @@ class Order extends Component {
             // order
             <OrderStyles data-test="order">
               <Head>
-                <title>Sick Fits - Order {order.id}</title>
+                <title>Speaker Box - Order {order.id}</title>
               </Head>
               <p>
                 <span>Order ID:</span>
                 <span>{this.props.id}</span>
-              </p>
-              <p>
-                <span>Charge</span>
-                <span>{order.charge}</span>
               </p>
               <p>
                 <span>Date</span>

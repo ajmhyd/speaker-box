@@ -8,9 +8,10 @@ const stripe = require('../stripe');
 
 const Mutations = {
   async createItem(parent, args, ctx, info) {
-    // Check if they are logged in
-    if(!ctx.request.userId) {
-      throw new Error('You must be logged in to do that!');
+    // check for permission
+    const hasPermissions = ctx.request.user.permissions.some(permission => ['ADMIN', 'ITEMCREATE'].includes(permission));
+    if(!hasPermissions){
+      throw new Error('You do not have permission to do that!');
     }
     const item = await ctx.db.mutation.createItem({
       data: {
@@ -28,6 +29,11 @@ const Mutations = {
   },
 
   async updateItem(parent, args, ctx, info) {
+    // check for permission
+    const hasPermissions = ctx.request.user.permissions.some(permission => ['ADMIN', 'ITEMUPDATE'].includes(permission));
+    if(!hasPermissions){
+      throw new Error('You do not have permission to do that!');
+    }
     // first take a copy of the updates
     const updates = { ...args };
     // remove the ID from the updates
@@ -47,9 +53,9 @@ const Mutations = {
     const item = await ctx.db.query.item({ where }, `{ id title user { id }}`);
     // 2. check if they own the item, or have permissions
     const ownsItem = item.user.id === ctx.request.userId;
-    const hasPermissions = ctx.requrest.user.permissions.some(permission => ['ADMIN', 'ITEMDELETE'].includes(permission));
+    const hasPermissions = ctx.request.user.permissions.some(permission => ['ADMIN', 'ITEMDELETE'].includes(permission));
     // doesn't own or have permission
-    if(!ownsItem || hasPermissions){
+    if(!ownsItem || !hasPermissions){
       throw new Error('You do not have permission to do that!');
     }
     // 3. delete it
