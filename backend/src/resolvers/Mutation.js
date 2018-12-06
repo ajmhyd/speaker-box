@@ -14,7 +14,7 @@ const Mutations = {
     }
     const item = await ctx.db.mutation.createItem({
       data: {
-        // This is how we create a relationship between item and user
+        // create a relationship between item and user
         user: {
           connect: {
             id: ctx.request.userId,
@@ -48,7 +48,7 @@ const Mutations = {
     // 2. check if they own the item, or have permissions
     const ownsItem = item.user.id === ctx.request.userId;
     const hasPermissions = ctx.requrest.user.permissions.some(permission => ['ADMIN', 'ITEMDELETE'].includes(permission));
-
+    // doesn't own or have permission
     if(!ownsItem || hasPermissions){
       throw new Error('You do not have permission to do that!');
     }
@@ -103,6 +103,7 @@ const Mutations = {
   },
 
   signout(parent, args, ctx, info) {
+    // clear cookie
     ctx.response.clearCookie('token');
     return { message: 'Goodbye!'};
   },

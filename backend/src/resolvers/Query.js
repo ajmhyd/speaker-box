@@ -10,6 +10,7 @@ const Query = {
     if(!ctx.request.userId) {
       return null;
     }
+    // return user
     return ctx.db.query.user({
       where: { id: ctx.request.userId},
     }, info);
@@ -47,9 +48,11 @@ const Query = {
 
   async orders(parent, args, ctx, info) {
     const { userId } = ctx.request;
+    // check if they are signed in
     if(!userId) {
       throw new Error('You must be signed in!');
     }
+    // return orders
     return ctx.db.query.orders({
       where: {
         user: { id: userId },
