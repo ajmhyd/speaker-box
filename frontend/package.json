@@ -39,7 +39,7 @@
     "waait": "^1.0.2"
   },
   "devDependencies": {
-    "babel-jest": "^23.6.0",
+    "babel-jest": "^29.7.0",
     "babel-plugin-module-resolver": "^5.0.0",
     "casual": "^1.5.19",
     "enzyme-to-json": "^3.3.4",
